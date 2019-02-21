@@ -1,0 +1,19 @@
+---
+# tasks file for debian
+- name: installation de quelques paquets debian
+  apt: name={{ item }} update-cache=yes
+  with_items:
+   - vim
+   - htop
+   - git
+   - zsh 
+- name: Creation d'un utilisateur
+  user: 
+   name: toto 
+   password: toto 
+   shell: /bin/bash 
+   comment: lel
+- name: inclusion httpd
+  include: httpd.yml
+...
+...
